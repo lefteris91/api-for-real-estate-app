@@ -3,13 +3,13 @@ const router = express.Router();
 const Home = require('../models/homemod');
 const mongoose = require('mongoose');
 const { request, response } = require('../app');
-const url = require('url');
-//4 filtra poli timh tetragwnika thermansh
+const url = require('url');                                 
+//4 filters city , heating , price , squaremeters           
 router.get('/',(req,res,next)=>{
     
     const pass = url.parse(req.url,true).query;          
-    let query = {};                                 //me to pass pernoume to url kai vazontas mia keni metavliti (query)
-    if (pass.city){                                 // tsekaroume mono ta stoixeia pou exei eisagei o xrhsths
+    let query = {};                                 //pass variable has the url of the query with var query we set an empty var 
+    if (pass.city){                                 // so we can fill it only with the filters the user added
         query.city = pass.city;
     }
     if (pass.heating){
